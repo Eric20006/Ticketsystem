@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import './scss/export';
+::selection {
+    background-color: $prime;
+    color: $black;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    @include sizing(0, 0);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $second;
+    background: linear-gradient(to bottom, $prime, $second);
+}
+
+.display-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

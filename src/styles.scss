@@ -14,8 +14,50 @@ body {
     background: linear-gradient(to bottom, $prime, $second);
 }
 
-.display-center {
+.display-center-row {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.display-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    height: 60px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: $second;
+    font-size: 20px;
+    &:hover {
+        background-color: $prime;
+        margin: 30px;
+        transition: 0.5s;
+    }
+}
+
+.input {
+    height: 60px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: $second;
+    font-size: 20px;
+    text-align: center;
+    &:hover {
+        background-color: $prime;
+        border: $grey solid 5px !important;
+        transition: 0.5s;
+    }
+}
+
+.max-z-index {
+    z-index: 9999;
 }

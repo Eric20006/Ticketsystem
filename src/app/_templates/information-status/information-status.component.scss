@@ -1,0 +1,11 @@
+@import './../../../scss/export';
+.container {
+    position: absolute;
+    margin-top: calc(250px);
+    right: 15px;
+    width: 30%;
+    text-align: center;
+    @include based-hover;
+    animation-name: moveRight;
+    animation-duration: 1s;
+}

@@ -1,0 +1,13 @@
+<div class="wrapper display-center-column">
+    <div class="container">
+        <div>
+            <h1>Kundenservice und Forum</h1>
+            <p>Hier kannst du, wenn du Probleme hast, mit einem Händler Kontakt aufnehmen oder dich mit anderen Nutzern in unserem golbalen Forum austauschen!</p>
+        </div>
+    </div>
+    <nav class="navigator">
+        <ul class="navigator-list list display-center-row">
+            <li *ngFor="let item of navigatorList;" [routerLink]="item.path" class="navigator-list-content display-center-row">{{item.name}}</li>
+        </ul>
+    </nav>
+</div>

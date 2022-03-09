@@ -1,5 +1,26 @@
-<div class="container display-center">
-    <div class="content display-center">
-        sad
+<div class="wrapper display-center-row">
+    <div class="container content display-center-column">
+
+        <div class="max-z-index display-center-column content" *ngIf="status == undefined">
+            <button class="button" *ngFor="let button of buttons; index as i" (click)="toggle(i);">{{button}}</button>
+        </div>
+
+        <form #loginContent="ngForm" (ngSubmit)="login(loginContent.value);" *ngIf="status" class="max-z-index display-center-column content">
+            <input type="text" placeholder={{inputs[0]}} class="input" name="name" ngModel>
+            <input type="password" placeholder={{inputs[1]}} class="input" name="pass" ngModel>
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+        <form #signUpContent="ngForm" (ngSubmit)="signUp(signUpContent.value);" *ngIf="status == false" class="max-z-index display-center-column content">
+            <input placeholder={{inputs[0]}} class="input" type="text" name="name" ngModel>
+            <input placeholder={{inputs[1]}} class="input" type="password" name="pass" ngModel>
+            <input placeholder={{inputs[2]}} class="input" type="password" name="passRepeat" ngModel>
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+        <div class="default-content">
+            <button class="button default-button" (click)="toggle(2)">Zurück</button>
+        </div>
+
     </div>
 </div>

@@ -1,0 +1,30 @@
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+@keyframes popUp {
+    from {
+        width: 0;
+        heihgt: 0;
+    }
+    to {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes moveRight {
+    from {
+        right: -1500px;
+    }
+    to {
+        right: 15px;
+    }
+}

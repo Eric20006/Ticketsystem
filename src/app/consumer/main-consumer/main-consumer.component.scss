@@ -1,0 +1,26 @@
+@import '../../../scss/export';
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    animation-name: slidein;
+    animation-duration: 2s;
+    .container {
+        background: linear-gradient($grey, $prime-dark);
+        width: 45%;
+        height: 45%;
+        min-width: 400px;
+        min-height: 400px;
+        border-radius: 20px;
+        box-shadow: 12px 4.5px 10px $grey;
+        .content {
+            width: 90%;
+            height: 100%;
+            animation-name: popUp;
+            animation-duration: 0.5s;
+            p {
+                text-align: center;
+                color: $white;
+            }
+        }
+    }
+}

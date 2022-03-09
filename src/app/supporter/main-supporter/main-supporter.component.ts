@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActiveUserInfoService } from 'src/app/_services/activeUserInfo/active-user-info.service';
+
 
 @Component({
   selector: 'app-main-supporter',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainSupporterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router, private controlUser:ActiveUserInfoService) { }
 
   ngOnInit(): void {
+    if (this.controlUser.activeUser == undefined || this.controlUser.activeUser.status != 'supporter') this._router.navigate(['/home']);
   }
-
 }

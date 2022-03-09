@@ -1,0 +1,39 @@
+@import './../../../scss/export';
+.wrapper {
+    position: absolute;
+    background-color: $prime;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 20px 20px $prime;
+    animation-name: slidein;
+    animation-duration: 2s;
+    .container {
+        height: 60%;
+        text-align: center;
+        h1 {
+            margin: 20px 0 10px 0;
+            padding: 0;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .navigator {
+        width: 100%;
+        .navigator-list {
+            @include display(flex-end, center);
+            .navigator-list-content {
+                width: min;
+                height: 30px;
+                padding: 20px;
+                cursor: pointer;
+                border: 3px solid $prime;
+                border-radius: 20px;
+                &:hover {
+                    @include based-hover;
+                }
+            }
+        }
+    }
+}

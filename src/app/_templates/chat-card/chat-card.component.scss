@@ -1,0 +1,70 @@
+@import '../../../scss/export';
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    animation-name: slidein;
+    animation-duration: 2s;
+    .container {
+        background: linear-gradient($grey, $prime-dark);
+        width: 80%;
+        height: 60%;
+        margin-top: 250px; //headerabstand
+        min-height: 400px;
+        min-width: 500px;
+        box-shadow: 12px 4.5px 10px $grey;
+        border-radius: 20px;
+        .title {
+            color: $white;
+            font-weight: bold;
+            background-color: $prime;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        hr {
+            width: 100%;
+        }
+        .showMsg {
+            width: 90%;
+            height: 85% !important;
+            overflow-x: scroll !important;
+            .me {
+                @include display(flex-start, center);
+                width: calc(100% - 20px);
+                margin: 10px;
+            }
+            .rest {
+                @include display (flex-end, center);
+                width: calc(100% - 20px);
+                margin: 10px;
+            }
+            .name {
+                background-color: $second;
+                border-radius: 5px;
+                padding: 3px;
+            }
+            .text {
+                color: $white;
+                margin: 3px;
+            }
+        }
+        .content {
+            width: 90%;
+            .input-send {
+                border: none;
+                background-color: $second;
+                margin: 5px;
+                height: 100%;
+                 ::placeholder {
+                    color: $black;
+                }
+            }
+            .button-send {
+                margin: 5px;
+                height: 100%;
+                border: none;
+                background-color: $grey;
+                color: $white;
+            }
+        }
+    }
+}

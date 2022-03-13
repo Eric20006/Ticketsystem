@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabankService } from 'src/app/_services/databank/databank.service';
+import { ChatCardConstruction } from 'src/app/_interfaces/chat-card-construction';
 
 @Component({
   selector: 'app-children-consumer-support',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildrenConsumerSupportComponent implements OnInit {
 
-  constructor() { }
+  public currentInformation:ChatCardConstruction;
 
+  constructor(private DatabankService:DatabankService) {
+    this.currentInformation = {
+      title: 'Support',
+      id: 'support',
+      content: []
+    };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {
   }
 

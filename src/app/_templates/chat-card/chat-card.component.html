@@ -1,21 +1,17 @@
 <div class="wrapper display-center-row">
     <div class="container display-center-column">
-        <p class="title">Titel (Forum, Support)</p>
+        <p class="title">{{information.title}}</p>
         <hr>
         <div class="showMsg">
-            <div class="me">
-                <div class="name">name</div>
-                <div class="text">Test</div>
-            </div>
-            <div class="rest">
-                <div class="name">name2</div>
-                <div class="text">Test2</div>
+            <div *ngFor="let item of information.content" [ngClass]="{'me': item.name == activeUser.activeUser?.name, 'rest': item.name != activeUser.activeUser?.name}">
+                <div class="name">{{item.name}}</div>
+                <div class="text">{{item.text}}</div>
             </div>
         </div>
 
         <div class="content display-center-row ">
-            <form #sendMsg="ngForm" class="display-center-row" (ngSubmit)="send(sendMsg.value)">
-                <input type="text " placeholder="Schreiben… " class="input-send " name="write " ngModel>
+            <form #sendMsg="ngForm" class="display-center-row" (ngSubmit)="send(sendMsg.value);">
+                <input type="text " placeholder="Schreiben… " class="input-send " name="write " ngModel #sendMsgValue>
                 <button type="submit " class="button-send ">Icon</button>
             </form>
         </div>

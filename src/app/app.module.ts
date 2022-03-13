@@ -14,6 +14,9 @@ import { DatabankService } from './_services/databank/databank.service';
 import { ChatCardComponent } from './_templates/chat-card/chat-card.component';
 import { ChildrenConsumerForumComponent } from './consumer/children/children-consumer-forum/children-consumer-forum.component';
 import { ChildrenConsumerSupportComponent } from './consumer/children/children-consumer-support/children-consumer-support.component';
+import { ConsumerCardComponent } from './consumer/_templates/consumer-card/consumer-card.component';
+import { GetConsumerComponent } from './supporter/children/get-consumer/get-consumer.component';
+import { ChildrenSupporterChatComponent } from './supporter/children/children-supporter-chat/children-supporter-chat.component';
 
 
 
@@ -28,7 +31,10 @@ import { ChildrenConsumerSupportComponent } from './consumer/children/children-c
     InformationStatusComponent,
     ChatCardComponent,
     ChildrenConsumerForumComponent,
-    ChildrenConsumerSupportComponent
+    ChildrenConsumerSupportComponent,
+    ConsumerCardComponent,
+    GetConsumerComponent,
+    ChildrenSupporterChatComponent
   ],
   imports: [
     BrowserModule,

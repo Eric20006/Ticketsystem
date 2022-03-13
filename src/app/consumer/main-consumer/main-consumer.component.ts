@@ -9,15 +9,10 @@ import { ActiveUserInfoService } from 'src/app/_services/activeUserInfo/active-u
 })
 export class MainConsumerComponent implements OnInit {
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public items: any[];
-
-  constructor(private _router: Router, private controlUser:ActiveUserInfoService) {
-    this.items = [{name: 'Forum', path: '/consumer/forum'},{name: 'Support', path:'/consumer/support'}, {name: 'Zum Login', path: '/home'}];
-  }
+  constructor(private _router: Router, private controlUser:ActiveUserInfoService) { }
 
   ngOnInit(): void {
-    console.log('test');
+    console.log('ngOnInit');
     if (this.controlUser.activeUser == undefined) this._router.navigate(['/home']);
   }
 

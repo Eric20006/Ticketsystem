@@ -5,16 +5,22 @@ import { MainConsumerComponent } from './consumer/main-consumer/main-consumer.co
 import { MainSupporterComponent } from './supporter/main-supporter/main-supporter.component';
 import { ChildrenConsumerForumComponent } from './consumer/children/children-consumer-forum/children-consumer-forum.component';
 import { ChildrenConsumerSupportComponent } from './consumer/children/children-consumer-support/children-consumer-support.component';
+import { ConsumerCardComponent } from './consumer/_templates/consumer-card/consumer-card.component';
+import { GetConsumerComponent } from './supporter/children/get-consumer/get-consumer.component';
+import { ChildrenSupporterChatComponent } from './supporter/children/children-supporter-chat/children-supporter-chat.component';
 
 
 const routes: Routes = [
     {path: 'home', component: MainHomeComponent},
     {path: 'consumer', component: MainConsumerComponent, children:[
-      {path: '', component: MainConsumerComponent},
+      {path: '', component: ConsumerCardComponent},
       {path: 'forum', component: ChildrenConsumerForumComponent},
       {path: 'support', component: ChildrenConsumerSupportComponent},
     ]},
-    {path: 'supporter', component: MainSupporterComponent},
+    {path: 'supporter', component: MainSupporterComponent, children: [
+      {path: '', component: GetConsumerComponent},
+      {path: 'chat', component: ChildrenSupporterChatComponent}
+    ]},
     {path: '**', redirectTo: '/home'}
 ];
 

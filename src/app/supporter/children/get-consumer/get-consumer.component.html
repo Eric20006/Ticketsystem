@@ -1,0 +1,14 @@
+<div class="wrapper display-center-row">
+    <div class="container display-center-column">
+        <p class="title">Kundensupport</p>
+        <hr>
+        <p class="undertitle">Mit welchen Kunden möchtest du schreiben?</p>
+        <div class="content-style">
+            <div class="showMsg" *ngFor="let item of showUsers.showUsers" (click)="clickConsumer(item)">
+                <p class="name">{{item.name}}</p>
+                <p>{{item.number}}</p>
+                <p>{{item.lastMsg}}</p>
+            </div>
+        </div>
+    </div>
+</div>

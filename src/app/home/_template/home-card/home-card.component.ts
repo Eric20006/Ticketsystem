@@ -20,7 +20,6 @@ export class HomeCardComponent implements OnInit {
     this.status = undefined;
   }
 
-
   public toggle (count: number): void {
     if (count == 0) this.status = true;
     if (count == 1) this.status = false;
@@ -36,5 +35,4 @@ export class HomeCardComponent implements OnInit {
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {  }
-
 }

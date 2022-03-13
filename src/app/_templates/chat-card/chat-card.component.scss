@@ -28,12 +28,12 @@
             height: 85% !important;
             overflow-x: scroll !important;
             .me {
-                @include display(flex-start, center);
+                @include display(flex-end, center);
                 width: calc(100% - 20px);
                 margin: 10px;
             }
             .rest {
-                @include display (flex-end, center);
+                @include display (flex-start, center);
                 width: calc(100% - 20px);
                 margin: 10px;
             }

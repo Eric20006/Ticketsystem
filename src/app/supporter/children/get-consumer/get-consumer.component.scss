@@ -1,0 +1,55 @@
+@import '../../../../scss/export';
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    animation-name: slidein;
+    animation-duration: 2s;
+    .container {
+        background: linear-gradient($grey, $prime-dark);
+        width: 80%;
+        height: 60%;
+        margin-top: 250px; //headerabstand
+        min-height: 400px;
+        min-width: 500px;
+        box-shadow: 12px 4.5px 10px $grey;
+        border-radius: 20px;
+        .title {
+            color: $white;
+            font-weight: bold;
+            background-color: $prime;
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .undertitle {
+            color: $second;
+        }
+        hr {
+            width: 100%;
+        }
+        .content-style {
+            width: 90%;
+            height: 80%;
+            @include display (center, flex-start);
+            flex-wrap: wrap;
+            align-content: flex-start;
+            .showMsg {
+                background-color: $white;
+                padding: 3px;
+                margin: 10px;
+                border-radius: 10px;
+                width: 20% !important;
+                height: 60px;
+                overflow: scroll;
+                p {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 11px;
+                }
+                .name {
+                    color: $red;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

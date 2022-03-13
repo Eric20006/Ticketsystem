@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   public navigatorList: any[];
 
   constructor(private route: ActivatedRoute) {
-    this.navigatorList = [{name: 'Einloggen', path:'/home'}, {name: 'Kundenservice', path: '/consumer'}, {name:'Forum', path:'/consumer'}];
+    this.navigatorList = [{name: 'Einloggen', path:'/home'}, {name: 'Kundenservice', path: '/consumer/support'}, {name:'Forum', path:'/consumer/forum'}];
    }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function

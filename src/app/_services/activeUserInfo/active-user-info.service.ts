@@ -21,6 +21,16 @@ export class ActiveUserInfoService {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public activeUserConfigAdmin(value:any):void{
+    this.activeUser= {
+      name: value.name,
+      password: value.pass,
+      status: 'supporter'
+    };
+    console.log(this.activeUser);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public resetUser():void {
     this.activeUser = {name: 'test', password: 'test', status: 'supporter'};
     console.log(this.activeUser);

@@ -1,1 +1,2 @@
-<app-home-card></app-home-card>
+<app-information-status [info]="currentInformation"></app-information-status>
+<app-home-card (currentInformation)="currentInformation = $event"></app-home-card>

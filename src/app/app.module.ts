@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { MainSupporterComponent } from './supporter/main-supporter/main-supporte
 import { MainConsumerComponent } from './consumer/main-consumer/main-consumer.component';
 import { HomeCardComponent } from './home/_template/home-card/home-card.component';
 import { HeaderComponent } from './_templates/header/header.component';
-import { InformationStatusComponent } from './_templates/information-status/information-status.component';
+import { InformationStatusComponent } from './home/_template/information-status/information-status.component';
 import { DatabankService } from './_services/databank/databank.service';
 import { ChatCardComponent } from './_templates/chat-card/chat-card.component';
 import { ChildrenConsumerForumComponent } from './consumer/children/children-consumer-forum/children-consumer-forum.component';
@@ -39,7 +40,8 @@ import { ChildrenSupporterChatComponent } from './supporter/children/children-su
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     DatabankService

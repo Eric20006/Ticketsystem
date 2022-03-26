@@ -1,5 +1,5 @@
 import { DatabankService } from './../../../_services/databank/databank.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -11,8 +11,7 @@ export class HomeCardComponent implements OnInit {
   public buttons: string[];
   public inputs: string[];
   public status: boolean | undefined;
-
-
+  @Output() currentInformation = new EventEmitter<string>();
 
   constructor(private Databank:DatabankService ) {
     this.buttons = ['Einloggen', 'Registrieren'];
@@ -29,6 +28,7 @@ export class HomeCardComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public login (value:any):void {
     this.Databank.login(value);
+    this.currentInformation.emit(this.Databank.errorHandler);
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public signUp (value:any):void {this.Databank.signUp(value);}

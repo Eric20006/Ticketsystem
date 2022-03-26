@@ -1,5 +1,5 @@
 export interface ShowSupporterConstruction {
-  name: string,
-  number: string,
+  username: string,
+  msg: string,
   lastMsg: string
 }

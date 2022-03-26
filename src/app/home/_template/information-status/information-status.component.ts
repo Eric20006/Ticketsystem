@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-information-status',
@@ -10,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class InformationStatusComponent implements OnInit {
 
-  info: string;
+  @Input() info: string;
 
   constructor( ) {
     this.info = '';
-   }
+  }
+
+  public timer():void {
+    this.info = '';
+    window.location.reload();
+  }
 
   ngOnInit(): void {
+
   }
 
 }

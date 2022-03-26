@@ -15,7 +15,7 @@ export class GetConsumerComponent implements OnInit {
 
   public clickConsumer(value:ShowSupporterConstruction):void{
     this._router.navigate(['/supporter/chat']);
-    this.showUsers.getActiveChatUser(value.name);
+    this.databank.getOneUserChatInformation(value.username);
   }
 
   ngOnInit(): void {

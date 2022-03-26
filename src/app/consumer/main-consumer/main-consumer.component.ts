@@ -14,6 +14,7 @@ export class MainConsumerComponent implements OnInit {
   ngOnInit(): void {
     console.log('ngOnInit');
     if (this.controlUser.activeUser == undefined) this._router.navigate(['/home']);
+    if (this.controlUser.activeUser?.status == 'supporter') this._router.navigate(['/supporter']);
   }
 
 }

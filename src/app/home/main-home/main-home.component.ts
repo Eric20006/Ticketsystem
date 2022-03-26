@@ -8,7 +8,11 @@ import { ActiveUserInfoService } from 'src/app/_services/activeUserInfo/active-u
 })
 export class MainHomeComponent implements OnInit {
 
-  constructor(private controlUser:ActiveUserInfoService) { }
+  public currentInformation: string;
+  constructor(private controlUser:ActiveUserInfoService) {
+    this.currentInformation = '';
+  }
+
 
   ngOnInit(): void {
     console.log('test');

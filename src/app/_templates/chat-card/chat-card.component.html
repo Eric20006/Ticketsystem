@@ -3,16 +3,16 @@
         <p class="title">{{information.title}}</p>
         <hr>
         <div class="showMsg">
-            <div *ngFor="let item of information.content" [ngClass]="{'me': item.name == activeUser.activeUser?.name, 'rest': item.name != activeUser.activeUser?.name}">
-                <div class="name">{{item.name}}</div>
-                <div class="text">{{item.text}}</div>
+            <div *ngFor="let item of information.content" [ngClass]="{'me': item.user == activeUser.activeUser?.name, 'rest': item.user != activeUser.activeUser?.name}">
+                <div class="name">{{item.user}}</div>
+                <div class="text">{{item.textContent}}</div>
             </div>
         </div>
 
         <div class="content display-center-row ">
-            <form #sendMsg="ngForm" class="display-center-row" (ngSubmit)="send(sendMsg.value);">
+            <form #sendMsg="ngForm" class="display-center-row" (ngSubmit)="send();">
                 <input type="text " placeholder="Schreiben… " class="input-send " name="write " ngModel #sendMsgValue>
-                <button type="submit " class="button-send ">Icon</button>
+                <button type="submit" class="button-send ">Icon</button>
             </form>
         </div>
     </div>

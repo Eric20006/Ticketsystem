@@ -7,30 +7,41 @@
 
 import { Injectable } from '@angular/core';
 import { ShowSupporterConstruction } from 'src/app/_interfaces/show-supporter-construction';
+import { ChatCardConstruction } from 'src/app/_interfaces/chat-card-construction';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShowUsersService {
   public showUsers: ShowSupporterConstruction[];
-  public activeChatUser: string;
+  public activeChatUser: ChatCardConstruction;
 
   constructor() {
     this.showUsers = [];
-    this.activeChatUser = '';
+    this.activeChatUser = {
+      title: '',
+      id: '',
+      content: []
+    };
   }
 
   public getShowUsers(value:ShowSupporterConstruction[]):void {
+    console.log(value);
     this.showUsers = value;
+    console.log(this.showUsers);
   }
 
-  public getActiveChatUser(value:string):void {
+  public getActiveChatUser(value:ChatCardConstruction):void {
     this.activeChatUser = value;
-    console.log(this.activeChatUser);
   }
 
   public deleteActiveUser():void{
-    this.activeChatUser = '';
+    this.activeChatUser = {
+      title: '',
+      id: '',
+      content: []
+    };
     console.log('test');
   }
 

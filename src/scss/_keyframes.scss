@@ -28,3 +28,12 @@
         right: 15px;
     }
 }
+
+@keyframes moveRightBack {
+    from {
+        rigth: 15px;
+    }
+    to {
+        rigth: -1500px;
+    }
+}

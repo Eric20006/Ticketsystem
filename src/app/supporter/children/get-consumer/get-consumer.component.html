@@ -5,8 +5,8 @@
         <p class="undertitle">Mit welchen Kunden möchtest du schreiben?</p>
         <div class="content-style">
             <div class="showMsg" *ngFor="let item of showUsers.showUsers" (click)="clickConsumer(item)">
-                <p class="name">{{item.name}}</p>
-                <p>{{item.number}}</p>
+                <p class="name">{{item.username}}</p>
+                <p>{{item.msg}}</p>
                 <p>{{item.lastMsg}}</p>
             </div>
         </div>

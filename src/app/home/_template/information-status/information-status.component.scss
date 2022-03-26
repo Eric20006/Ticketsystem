@@ -1,4 +1,4 @@
-@import './../../../scss/export';
+@import '../../../../scss/export';
 .container {
     position: absolute;
     margin-top: calc(250px);
@@ -8,4 +8,8 @@
     @include based-hover;
     animation-name: moveRight;
     animation-duration: 1s;
+}
+
+.none {
+    display: none;
 }

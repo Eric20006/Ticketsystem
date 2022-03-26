@@ -1,35 +1,89 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ChatCardConstruction } from 'src/app/_interfaces/chat-card-construction';
 import { Injectable } from '@angular/core';
-import { ActiveUserInfoService } from '../activeUserInfo/active-user-info.service';
 import { Router } from '@angular/router';
 import { ShowUsersService } from '../supporterShowUser/show-users.service';
-import { ShowSupporterConstruction } from 'src/app/_interfaces/show-supporter-construction';
+import { ActiveUserInfoService } from '../activeUserInfo/active-user-info.service';
+import { ConsumerShowUserService } from '../consumerShowUser/consumer-show-user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DatabankService {
-  /*@Output() newItemEvent = new EventEmitter<string>();
+  public errorHandler:string;
+  public _url: string;
+  public body:object;
 
-  addNewItem(value: string) {
-    this.newItemEvent.emit(value);
-  }*/
-
-
-  constructor(private activeUser:ActiveUserInfoService, private _router:Router, private showUserService: ShowUsersService) { }
+  constructor(private activeUser:ActiveUserInfoService, private _router:Router, private showUserService: ShowUsersService, private showConsumer: ConsumerShowUserService, private client:HttpClient) {
+    this.errorHandler = '';
+    this._url = 'https://localhost:8080';
+    this.body = {};
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public login(value:any):void {
-    if (value.name == '' || value.pass == '') return  console.log('error');
-    this.activeUser.activeUserConfig(value);
-    this._router.navigate(['/consumer']);
+    if (value.name == '' || value.pass == '') {
+      this.errorHandler = 'Name oder Passwort fehlen';
+      return;
+    }
+    this.body = {
+      username: value.name,
+      password: value.pass
+    };
+    const _fetch:any = {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.body),
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    };
+    const url = this._url + '/users/login/' + value.name;
+    fetch(url, _fetch)
+      .then(data =>{return data.json();})
+      .then(post => {
+        console.log(post);
+        if (post.role == 'support') {
+          this._router.navigate(['/supporter']);
+          this.activeUser.activeUserConfigAdmin(value);
+        } else {
+          this.activeUser.activeUserConfig(value);
+          this._router.navigate(['/consumer']);
+        }});
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public signUp(value:any):void {
-    if (value.name == '' || value.pass == '' || value.passRepeat == '') return console.log('error');
-    if (value.pass != value.passRepeat) return console.log('not allowed');
+    if (value.name == '' || value.pass == '' || value.passRepeat == '') {
+      this.errorHandler = 'Eines der Eingabefelder wurde nicht ausgefüllt';
+      return ;
+    } else if (value.pass != value.passRepeat) {
+      this.errorHandler = 'Passwort nicht korrekt';
+      return;
+    }
+    const url = this._url + '/users';
+    this.body = {
+      username: value.name,
+      password: value.pass
+    };
+    const _fetch:any = {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.body),
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    };
+    fetch(url, _fetch)
+      .then(data =>{return data.json();})
+      .then(post =>{
+        if (post != true) return this.errorHandler = 'Benutzername vergeben.';
+        return this.login(value);
+      });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,20 +92,123 @@ export class DatabankService {
   }
 
   //----------------------------------------------------------------------
-  // Supporter
-  public getUserInformation():void {
-    const test:ShowSupporterConstruction[] = [{name: 'd', number: '1', lastMsg: 'd'}, {name: 'A', number: '1', lastMsg: 'w'}];     //aus dem GET
-    this.showUserService.getShowUsers(test);
+  //Consumer
+  public getForumInformation(value?:string):void{
+    console.log('Forum');
+    const url = this._url + '/users/login/' + this.activeUser.activeUser + '/forum';
+    if (value) {
+      this.body = {
+        textContent: value,
+        username: this.activeUser.activeUser?.name
+      };
+    } else this.body = {
+      username: this.activeUser.activeUser?.name,
+      onload: true
+    };
+    console.log(this.body);
+    const _fetch:any = {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.body),
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    };
+    fetch(url, _fetch)
+      .then(data => {return data.json();})
+      .then(post => {this.showConsumer.activeChat = post; this.showConsumer.control = true; console.log(this.showConsumer.activeChat);});
   }
 
-//  public getOneUserChatInformation(value:Show)
+  public getSupporterInformation(value?:string):void{
+    console.log('Support');
+    const url = this._url + '/users/login/' + this.activeUser.activeUser + '/support';
+    if (value) {
+      this.body = {
+        textContent: value,
+        username: this.activeUser.activeUser?.name
+      };
+    } else this.body = {
+      username: this.activeUser.activeUser?.name,
+      onload: true
+    };
+    console.log(this.body);
+    const _fetch:any = {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.body),
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    };
+    fetch(url, _fetch)
+      .then(data => {return data.json();})
+      .then(post => {this.showConsumer.activeChat = post; this.showConsumer.control = true; console.log(this.showConsumer.activeChat);});
+  }
 
+  //----------------------------------------------------------------------
+  // Supporter
+  public getUserInformation():void {
+    const url = this._url + '/users/login/support/preview';
+    fetch(url)
+      .then(data => {return data.json();})
+      .then(post => {
+        console.log(post);
+        this.showUserService.getShowUsers(post);
+      });
+  }
 
-  //TODO: Funktioniert nicht
+ public getOneUserChatInformation(value:string):void {
+   const url = this._url + '/users/login/support/' + value;
+   this.body = {
+     username: value,
+     read: true
+   };
+   const _fetch:any = {
+    method: 'POST',
+    mode: 'cors',
+    body: JSON.stringify(this.body),
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+  };
+   fetch(url, _fetch)
+      .then(data => {return data.json();})
+      .then(post => {
+        const content: ChatCardConstruction = {
+          title: value,
+          id: value + ' supporter',
+          content: post
+        };
+        console.log(content);
+        this.showUserService.getActiveChatUser(content);
+      });
+  }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getInformation(value:any):string {
-    const essen = 'deine Mutter';
-    return essen;
+  public userChatRequest(value:string):void{
+    const url = this._url + '/users/login/' + this.showUserService.activeChatUser.title + '/support';
+    this.body = {
+      textContent: value,
+      username: this.activeUser.activeUser?.name,
+      adress: this.showUserService.activeChatUser.title
+    };
+    console.log(this.body);
+    const _fetch:any = {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.body),
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      }
+    };
+    fetch(url, _fetch)
+    .then(data => {return data.json();})
+    .then(post => {
+      console.log(post);
+      this.showUserService.activeChatUser.content = post;
+    });
   }
 }

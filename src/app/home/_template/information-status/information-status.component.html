@@ -1,0 +1,5 @@
+<div [ngClass]="{'max-z-index': true,'container':info != '', 'none':info == ''}" (click)="timer()">
+    <div class="content">
+        <p>{{info}}<br> (Klick mich an, damit ich verschwinde)</p>
+    </div>
+</div>

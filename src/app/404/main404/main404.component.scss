@@ -1,0 +1,12 @@
+@import '../../../scss/export';
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    animation-name: slidein;
+    animation-duration: 2s;
+    .container {
+        background-color: $prime-dark;
+        padding: 5%;
+        border-radius: 20px;
+    }
+}

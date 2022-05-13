@@ -7,7 +7,7 @@ import { ActiveUserInfo } from 'src/app/_interfaces/active-user-info';
 export class ActiveUserInfoService {
   public activeUser:ActiveUserInfo | undefined;
   constructor() {
-    this.activeUser = {name: 'test', password: 'test', status: 'supporter'};
+    this.activeUser = {name: '', password: '', status: ''};
    }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,7 +32,7 @@ export class ActiveUserInfoService {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public resetUser():void {
-    this.activeUser = {name: 'test', password: 'test', status: 'supporter'};
+    this.activeUser = {name: '', password: '', status: ''};
     console.log(this.activeUser);
   }
 }

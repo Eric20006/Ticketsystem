@@ -1,0 +1,8 @@
+<div class="wrap">
+    <div class="content" [@openClose]="message.content[0].toggle ? 'open' : 'closed'" *ngFor="let item of message.content">
+        <div class="delete display-center-row" (click)="message.deleteMsg(item);"> X </div>
+        <p>Du hast eine neue Nachricht erhalten.</p>
+        <p>Nachrich von: {{item.name}}</p>
+        <p>Inhalt: {{item.content}}</p>
+    </div>
+</div>

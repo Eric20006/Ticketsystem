@@ -37,10 +37,10 @@ body {
     margin-bottom: 10px;
     border-radius: 10px;
     border: none;
-    background-color: $second;
+    background-color: $prime;
     font-size: 20px;
     &:hover {
-        background-color: $prime;
+        background-color: $prime-dark;
         margin: 30px;
         transition: 0.5s;
     }
@@ -61,3 +61,29 @@ body {
         transition: 0.5s;
     }
 }
+
+
+/* !Important: Omly for the Error Page beacause the style have to be in a global file*/
+
+.h1 {
+    text-align: center;
+}
+
+.p {
+    text-align: center;
+    font-size: 25px;
+    line-height: 40px;
+    .a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 1s;
+        &:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/*!Important out*/

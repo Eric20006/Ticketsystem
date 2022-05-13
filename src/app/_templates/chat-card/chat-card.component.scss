@@ -26,7 +26,8 @@
         .showMsg {
             width: 90%;
             height: 85% !important;
-            overflow-x: scroll !important;
+            overflow-y: auto;
+            scroll-behavior: smooth;
             .me {
                 @include display(flex-end, center);
                 width: calc(100% - 20px);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { ChildrenConsumerSupportComponent } from './consumer/children/children-c
 import { ConsumerCardComponent } from './consumer/_templates/consumer-card/consumer-card.component';
 import { GetConsumerComponent } from './supporter/children/get-consumer/get-consumer.component';
 import { ChildrenSupporterChatComponent } from './supporter/children/children-supporter-chat/children-supporter-chat.component';
+import { Main404Component } from './404/main404/main404.component';
+import { NewMsgComponent } from './_templates/new-msg/new-msg.component';
+
 
 
 
@@ -35,13 +39,16 @@ import { ChildrenSupporterChatComponent } from './supporter/children/children-su
     ChildrenConsumerSupportComponent,
     ConsumerCardComponent,
     GetConsumerComponent,
-    ChildrenSupporterChatComponent
+    ChildrenSupporterChatComponent,
+    Main404Component,
+    NewMsgComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DatabankService

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // IMPORTANT
 //-------------------------------------------------------------------------------------------------------------
 //This service is only for Consumer!
@@ -11,13 +13,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConsumerShowUserService {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public activeChat: any[]; //usefull for Forum and Supporter
+  public activeChatForum: any[]; //usefull for Forum and Supporter
   public control: boolean;
+  public activeChatSupport: any[];
 
   constructor() {
-    this.activeChat = [];
+    this.activeChatForum = [];
     this.control = false;
+    this.activeChatSupport = [];
   }
-
 }

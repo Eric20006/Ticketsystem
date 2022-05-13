@@ -2,7 +2,7 @@
     <div class="container display-center-column">
         <p class="title">{{information.title}}</p>
         <hr>
-        <div class="showMsg">
+        <div class="showMsg" #scrollDown [scrollTop]="scrollDown.scrollHeight">
             <div *ngFor="let item of information.content" [ngClass]="{'me': item.user == activeUser.activeUser?.name, 'rest': item.user != activeUser.activeUser?.name}">
                 <div class="name">{{item.user}}</div>
                 <div class="text">{{item.textContent}}</div>

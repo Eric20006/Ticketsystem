@@ -14,7 +14,7 @@
         box-shadow: 12px 4.5px 10px $grey;
         .content {
             width: 100%;
-            height: 60%;
+            height: 40%;
             animation-name: popUp;
             animation-duration: 0.5s;
             input::placeholder {
@@ -23,10 +23,11 @@
         }
         .default-content {
             position: absolute;
-            height: calc(45% / 2);
+            height: 22.5%;
             width: 45%;
-            min-height: 200px;
-            margin-top: calc(45% / 3);
+            min-width: 400px;
+            min-height: 100px;
+            margin-top: 10%;
             @include display(center, flex-end);
             z-index: 0;
             .default-button {

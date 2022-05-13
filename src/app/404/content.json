@@ -1,0 +1,5 @@
+{
+    "404": "<h1 class='h1'>Error404</h1> <p class='p'> Ups. Hier ist etwas schiefgelaufen <br> Du befindest dich auf einer Route, die nicht existiert.<br>Gehe wieder zur <a class='a' href='http://localhost:4200/home'>Startseite</a> oder <a class='a' href='http://localhost:4200/consumer'>zurück.</a> </p>",
+    "402": "<h1 class='h1'>Error402</h1> <p class='p'> Ups. Hier ist etwas schiefgelaufen <br> Du befindest dich auf einer anmeldepflichitgen Route, wobei du nicht angemeldet bist.<br>Gehe wieder zur <a class='a' href='http://localhost:4200/home'>Startseite</a> oder <a class='a' href='http://localhost:4200/consumer'>zurück.</a> </p>",
+    "400": "<h1 class='h1'>Error400</h1> <p class='p'> Ups. Hier ist etwas schiefgelaufen <br> Du befindest dich auf einer Route, wo du dich nicht aufhalten solltest.<br>Gehe wieder zur <a class='a' href='http://localhost:4200/home'>Startseite</a> oder <a class='a' href='http://localhost:4200/consumer'>zurück.</a> </p>"
+}

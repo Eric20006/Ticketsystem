@@ -45,7 +45,11 @@ export class DatabankService {
     fetch(url, _fetch)
       .then(data =>{return data.json();})
       .then(post => {
-        console.log(post);
+        console.error(post);
+        if(!post) {
+          this.errorHandler = 'Passwort oder Nutzernamen nicht korrekt';
+          return console.warn('WrongPassword');
+        }
         if (post.role == 'support') {
           this._router.navigate(['/supporter']);
           this.activeUser.activeUserConfigAdmin(value);
@@ -117,7 +121,7 @@ export class DatabankService {
     };
     fetch(url, _fetch)
       .then(data => {return data.json();})
-      .then(post => {this.showConsumer.activeChat = post; this.showConsumer.control = true; console.log(this.showConsumer.activeChat);});
+      .then(post => {this.showConsumer.control = true; this.showConsumer.activeChatForum = post; });
   }
 
   public getSupporterInformation(value?:string):void{
@@ -144,7 +148,7 @@ export class DatabankService {
     };
     fetch(url, _fetch)
       .then(data => {return data.json();})
-      .then(post => {this.showConsumer.activeChat = post; this.showConsumer.control = true; console.log(this.showConsumer.activeChat);});
+      .then(post => {this.showConsumer.activeChatSupport = post; this.showConsumer.control = true;});
   }
 
   //----------------------------------------------------------------------

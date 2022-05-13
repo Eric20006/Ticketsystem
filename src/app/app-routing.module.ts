@@ -8,6 +8,7 @@ import { ChildrenConsumerSupportComponent } from './consumer/children/children-c
 import { ConsumerCardComponent } from './consumer/_templates/consumer-card/consumer-card.component';
 import { GetConsumerComponent } from './supporter/children/get-consumer/get-consumer.component';
 import { ChildrenSupporterChatComponent } from './supporter/children/children-supporter-chat/children-supporter-chat.component';
+import { Main404Component } from './404/main404/main404.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: '', component: GetConsumerComponent},
       {path: 'chat', component: ChildrenSupporterChatComponent}
     ]},
-    {path: '**', redirectTo: '/home'}
+    {path: '', pathMatch: 'full', redirectTo: '/home'},
+    {path: '**', component: Main404Component}
 ];
 
 @NgModule({

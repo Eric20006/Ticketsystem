@@ -1,0 +1,33 @@
+@import '../../../scss/export';
+.wrap {
+    position: absolute;
+    right: 0;
+    top: 250px;
+    width: auto;
+    height: auto;
+    .content {
+        padding: 10px;
+        background-color: $second;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        margin-bottom: 2%;
+        .delete {
+            position: absolute;
+            color: $red;
+            right: 5px;
+            cursor: pointer;
+            border: solid 2px $red;
+            &:hover {
+                font-weight: bold;
+                transition: 1s;
+                color: $prime-dark;
+            }
+        }
+        p {
+            margin: 0;
+            font-weight: bolder;
+            font-size: 14px;
+            margin-right: 14px;
+        }
+    }
+}

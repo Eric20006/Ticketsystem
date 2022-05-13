@@ -13,6 +13,7 @@ export class MainSupporterComponent implements OnInit {
   constructor(private _router: Router, private controlUser:ActiveUserInfoService) { }
 
   ngOnInit(): void {
-    if (this.controlUser.activeUser == undefined || this.controlUser.activeUser.status != 'supporter') this._router.navigate(['/home']);
+    if (this.controlUser.activeUser?.name == '') this._router.navigate(['/error402']);
+    if (this.controlUser.activeUser?.status != 'supporter') this._router.navigate(['/error400']);
   }
 }

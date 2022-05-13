@@ -4,7 +4,6 @@
         <div class="max-z-index display-center-column content" *ngIf="status == undefined">
             <button class="button" *ngFor="let button of buttons; index as i" (click)="toggle(i);">{{button}}</button>
         </div>
-
         <form #loginContent="ngForm" (ngSubmit)="login(loginContent.value);" *ngIf="status" class="max-z-index display-center-column content">
             <input type="text" placeholder={{inputs[0]}} class="input" name="name" ngModel>
             <input type="password" placeholder={{inputs[1]}} class="input" name="pass" ngModel>
